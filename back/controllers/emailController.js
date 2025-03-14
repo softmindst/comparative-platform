@@ -1,8 +1,9 @@
 const SibApiV3Sdk = require('sib-api-v3-sdk');
+require('dotenv').config();
 let defaultClient = SibApiV3Sdk.ApiClient.instance;
 
 let apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = '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';
+apiKey.apiKey = process.env.SENDINBLUE_API_KEY;
 
 const obtener_listas_contactos = async function(req,res){
     if(req.user){
@@ -156,11 +157,11 @@ const crear_campaign = async function(req,res){
         
         emailCampaigns = {
             tag: 'Practica',
-            sender: {name: 'Diego', email: env.EMAIL_USER}, 
+            sender: {name: 'Diego', email: process.env.EMAIL_USER}, 
             name: data.name,
             subject: data.subject,
             htmlContent: data.html_content,
-            replyTo: env.EMAIL_USER,
+            replyTo: process.env.EMAIL_USER,
             recipients: {listIds:arr_list},
             inlineImageActivation: false,
             mirrorActive: false,

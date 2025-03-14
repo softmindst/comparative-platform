@@ -151,8 +151,8 @@ const enviar_correo_prospeccion = async function(cliente,asunto,email,contenido)
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: env.EMAIL_USER,
-                pass: env.EMAIL_PASSWORD
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASSWORD
             }
         }));
 
@@ -171,7 +171,7 @@ const enviar_correo_prospeccion = async function(cliente,asunto,email,contenido)
             var htmlToSend = template({op:true});
         
             var mailOptions = {
-                from: env.EMAIL_USER,
+                from: process.env.EMAIL_USER,
                 to: email,
                 subject: asunto,
                 html: htmlToSend
