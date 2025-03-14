@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     const mongoUri = process.env.MONGODB_URI;
-    console.log('Mongo URI:', mongoUri);
     if (!mongoUri) {
       throw new Error('MONGO_URI is not defined');
     }
