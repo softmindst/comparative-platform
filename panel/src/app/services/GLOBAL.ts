@@ -1,3 +1,5 @@
+import { environment } from "src/environments/environment.prod";
+
 let today = new Date();
 let day :any = today.getDate();
 let month :any = today.getMonth()+1;
@@ -15,6 +17,6 @@ if(month<=9){
 let str_today = year + '-' + month + '-'+day;
 
 export const GLOBAL = {
-    url: 'http://127.0.0.1:4201/api/',
+    url: environment.URL_BACKEND,
     str_today: str_today
 }
